@@ -31,28 +31,23 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     colors
-     ruby
-     c-c++
-     javascript
-     ;; ----------------------------------------------------------------
+    ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     octave
+     colors
+     ruby
+     c-c++
+     javascript
      helm
      python
      scala
      auto-completion
-     ;; better-defaults
      emacs-lisp
      git
      markdown
-     ;;org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;;spell-checking
      syntax-checking
      version-control
      )
@@ -124,7 +119,9 @@ values."
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
    ;; directory. A string value must be a path to an image format supported
-   ;; by your Emacs build.
+   ;;
+
+ by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'official
    ;; List of items to show in startup buffer or an association list of
@@ -331,13 +328,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq linum-format "%4d ")
   ;; quickrun
   (push '("*quickrun*") popwin:special-display-config)
-  (global-set-key (kbd "<f1>") 'quickrun)
-  (global-set-key (kbd "C-<f1>") 'quickrun-with-arg)
+  (global-set-key (kbd "C-<return>") 'quickrun-with-arg)
   ;; インデントハイライト
-;;  (add-hook 'python-mode-hook 'highlight-indentation-mode)
-;;  (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
-;;  (set-face-background 'highlight-indentation-face "#111111")
-;;  (set-face-background 'highlight-indentation-current-column-face "#c3b3b3")
+  (add-hook 'python-mode-hook 'highlight-indentation-mode)
+  (add-hook 'python-mode-hook 'highlight-indentation-current-column-mode)
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
